@@ -3,12 +3,27 @@ import Producers from "../../models/fakedata.json";
 
 function EventInformation() {
   const [execProducer, setExecProducer] = useState();
-  const [producers, setProducers] = useState("None");
-  const [producersAssistants, setProducersAssistants] = useState([])
+  const [producers, setProducers] = useState<string[]>([]);
+  const [producersAssistants, setProducersAssistants] = useState<string[]>([]);
 
-  function addAssistant(){
-    
+  function setProducersAssistantsList(assistant:string){
+    if(producersAssistants.includes(assistant)){
+      return;
+    }
+    else{
+      setProducersAssistants([...producersAssistants, assistant])
+    }
   }
+
+  function setProducersList(producer:string){
+    if(producers.includes(producer)){
+      return;
+    }
+    else{
+      setProducers([...producers, producer])
+    }
+  }
+
   return (
     <div className="">
       <img
@@ -20,11 +35,7 @@ function EventInformation() {
         <div className="d-flex flex-row justify-content-evenly pb-3">
           <div className="d-flex flex-column">
             <label className="form-label">Webb Event Name:</label>
-            <input
-              type="text"
-              id="webbEventName"
-              placeholder=""
-            ></input>
+            <input type="text" id="webbEventName" placeholder=""></input>
           </div>
           <div className="d-flex flex-column">
             <label className="form-label">Client Event Name:</label>
@@ -38,7 +49,7 @@ function EventInformation() {
           </div>
           <div className="d-flex flex-column">
             <label className="form-label">Exec Producer:</label>
-            <input  type="text"></input>
+            <input type="text"></input>
           </div>
         </div>
         <div className="d-flex flex-row justify-content-evenly pb-5">
@@ -62,7 +73,7 @@ function EventInformation() {
                     <li>
                       <a
                         className="dropdown-item"
-                        onClick={() => setProducers(producer.Name)}
+                        onClick={() => setProducersList(producer.Name)}
                       >
                         {producer.Name}
                       </a>
@@ -71,6 +82,11 @@ function EventInformation() {
                 })}
               </ul>
             </div>
+            <ul>
+            {producers.map((producer) => (
+                <li>{producer}</li>
+              ))}
+              </ul>
           </div>
           <div className="d-flex flex-column">
             <div className="dropdown">
@@ -90,26 +106,31 @@ function EventInformation() {
                 {Producers.ProducerAssistants.map((assistant: any) => {
                   return (
                     <li>
-                      <a className="dropdown-item" onClick={addAssistant(assistant)}>{assistant.Name}</a>
+                      <a
+                        className="dropdown-item"
+                        onClick={() => setProducersAssistantsList(assistant.Name)}
+                      >
+                        {assistant.Name}
+                      </a>
+                      
                     </li>
                   );
                 })}
               </ul>
             </div>
             <ul>
-              {
-                producersAssistants.map((assistant) => 
-                  <li>{assistant}</li>      
-                )
-              }
+              {producersAssistants.map((assistant) => (
+                <li>{assistant}</li>
+              ))}
             </ul>
           </div>
         </div>
         <div className="d-flex justify-content-center">
-        <button className="btn btn-primary border-white" type="submit">Next</button>
-      </div>
+          <button className="btn btn-primary border-white" type="submit">
+            Next
+          </button>
+        </div>
       </form>
-      
     </div>
   );
 }
