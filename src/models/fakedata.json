@@ -1,0 +1,38 @@
+{
+    "Producers": [
+        {"Name": "Chad Call"},
+        {"Name": "Chad Brammer"},
+        {"Name": "Madelie Paey"},
+        {"Name": "Hannah Laser"},
+        {"Name": "Robb Barron"},
+        {"Name": "Taylor Holbrook"},
+        {"Name": "Molly Korzep"},
+        {"Name": "Meggan Pengrie"}
+    ],
+    "ProducerAssistants": [
+        {"Name": "Jordan Bagley"},
+        {"Name": "Christy Fosse"},
+        {"Name": "Senya Unknown"},
+        {"Name": "Mckenzie Warren"},
+        {"Name": "Taylor Wilkenson"}
+    ],
+    "Client" : [
+        {"Name": "Plural Sight",
+         "Shows": []},
+        {"Name": "Domo",
+         "Shows": 
+         [
+            {"Name": ""}
+         ]},
+         {"Name": "Maverick",
+         "Shows": []},
+         {"Name": "Younique",
+         "Shows": []},
+         {"Name": "",
+         "Shows": []},
+         {"Name": "Domo",
+         "Shows": []},
+         {"Name": "Domo",
+         "Shows": []}
+    ]
+}
